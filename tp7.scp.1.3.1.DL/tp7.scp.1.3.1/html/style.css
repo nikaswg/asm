@@ -1,0 +1,118 @@
+body .sansserif, body {
+   font-family: 'Verdana', 'Geneva', 'Helvetica', 'sans-serif';
+}
+
+body .mono, body pre, body .code {
+   font-family: 'Monaco', 'Consolas', 'Lucida Console', 'monospace';
+}
+
+body .headfont, body h1, body h2, body h3 {
+   font-family: 'Helvetica', 'Helvetica Neue', 'Arial', 'sans-serif';
+   font-style: bold;
+}
+
+body {
+   font-size: 80%;
+   padding-left: 5%;
+   padding-right: 5%;
+}
+
+body h1 {
+   text-align: center;
+}
+
+body p {
+   text-align: justify;
+   text-indent: 2em;
+   margin: 0.4em;
+}
+
+body .copyright {
+   text-align: right;
+   margin-right: 10%;
+}
+
+body .bookmarks {
+   float: right;
+   margin-left: 2em;
+   margin-bottom: 1em;
+}
+
+body .remark {
+   font-style: italic;
+}
+
+body ol.mainol {
+   list-style-type: none;
+}
+
+body .gallery img {
+   clear: right;
+   display: block;
+   border: none;
+   margin-top: 1em;
+   margin-bottom: 1em;
+}
+
+body .centered, body img {
+   margin-left: auto;
+   margin-right: auto;
+}
+
+body pre, body .code {
+   display: block;
+   clear: right;
+   border: 0.5em double #55FFFF;
+   margin-left: 2em;
+   margin-right: 2em;
+   padding-left: 4em;
+   padding-top: 1em;
+   padding-bottom: 1em;
+   background-color: #0000AA;
+   color: #AAAAAA;
+   font-size: 125%;
+}
+
+body .code {
+   padding-right: 4em;
+}
+
+body .topborder {
+   margin-top: 0.3em;
+   border-top: 0.3em solid #00a;
+}
+
+body pre .reserved, body .code .reserved {
+   color: #55FFFF;
+}
+
+body pre .symbol, body .code .symbol {
+   color: #FF55FF;
+}
+
+body pre .string, body .code .string {
+   color: #FFFF55;
+}
+
+body pre .number, body .code .number {
+   color: #55FF55;
+}
+
+body li.sad {
+  list-style-image: url(img/sad.gif);
+}
+
+body li.smile {
+  list-style-image: url(img/smile.gif);
+}
+
+body {
+   background-color: #CCFFFF;
+}
+
+#li_comments {
+   background-color: #FFFFFF;
+   height: 30em;
+   padding-left: 2em;
+   border: 0.15em dashed #AAAAAA;
+}

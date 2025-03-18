@@ -1,0 +1,70 @@
+                    Z.COM end-user license.
+
+Z.COM is freeware.
+
+You are encouraged to distribute the original and unmodified package
+freely, in any form and on any media, provided you do not charge any
+fee for the Program itself.
+
+The  Program could  be included  in CDROM  collections, subscription
+download areas,  BBS packages, provided  it remains in  its complete
+and unmodified original archive.
+
+The inclusion  of the Program  as part of  a software package  to be
+distributed always requires a special distribution license.
+
+The Program is provided on an  "as is" basis without warranty of any
+kind, expressed or implied, including but not limited to the implied
+warranties of merchantability and  fitness for a particular purpose.
+The person using  the software bears all risk as  to the quality and
+performance of the Program.
+
+The  author  will  not  be   liable  for  any  special,  incidental,
+consequential, indirect  or similar damages  due to loss of  data or
+any other reason.
+
+
+
+Z.COM source code
+~~~~~~~~~~~~~~~~~
+
+You can purchase source code of Z.COM.
+
+If you purchase Z.COM, you may  modify the Z.COM. You may use, copy,
+modify,  decompile,  disassemble,  otherwise  reverse  engineer,  or
+transfer the Z.COM.
+
+You may not redistribute of Z.COM source code.
+
+Users who purchased  the developer's license are  notified about new
+versions of  Z.COM. If requested, new  versions may be sent  them by
+e-mail.
+
+
+Ordering information
+~~~~~~~~~~~~~~~~~~~~
+
+Cost of source code of Z.COM  = $67.
+
+  The quickest method being ONLINE  REGISTRATION via a SECURE SERVER
+with a credit card:
+
+	http://www.regsoft.net/purchase.php3?productid=36515
+
+  If  you have  problems accessing  secure servers  you can  try the
+following URL :
+  http://www.regsoft.net/purchase_nonsecure.php3?productid=36515
+
+  You can  also purchase and  license this software via  a TOLL-FREE
+Voice Order  Line at  1-877-REGSOFT (1-877-734-7638),  or by  fax at
+770-497-9234.
+  The Product ID# is REQUIRED for both Voice and Fax orders (36515).
+
+
+For  more  registration  information and  latest  price  information
+contact:
+
+Sergey Chehuta
+
+WWW:  http://www.whitetown.com
+Email:   support@whitetown.com

@@ -1,0 +1,15 @@
+;Structure of  a palette  file (size of  a file no  more than  4 Kb).
+;Empty lines and lines beginning with ";" are ignored. 
+;Each colour is described by three numbers (R, G, B) in a range 0..63
+;in decimal  or 0..3Fh in  hexadecimal. 
+;The minus means  the passing, this place will be  as in the current
+;palette. Numbers may be in one line, or in a column:
+
+00 00 00 	; black
+- - - 		; dark blue (without change)
+00 20h 0 	; green
+0 20h 20h 	; light-blue
+32 - 10 	; red
+		; further...
+
+; Others colours will stay without change

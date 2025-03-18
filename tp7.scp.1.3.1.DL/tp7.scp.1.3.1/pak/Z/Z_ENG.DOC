@@ -1,0 +1,274 @@
+                    The switcher of video modes.
+                       Version 2.14 freeware
+               Copyright (c) Sergey Chehuta 1996-2000
+                            VGA utility
+
+WWW:   http://www.whitetown.com
+Email:    support@whitetown.com
+
+
+Use: 	 Z.COM [parameter] [parameter] [parameter]...
+
+	You may used as much parameters, as command line can contain
+in. The parameters  should be divided by blank.  The parameters will
+be carried  out in sequence. The  program will be stopped  and error
+message appered if incorrect parameter is specified.
+
+	The following parameters are allowed:
+
+ /? 		- information about program.
+
+ I 		- interactive  mode.  You  can   choose  a  mode  by
+		  pressing  Enter them  the menu  - if  setting mode
+		  failed -  press the  blank for return  80x25 video
+		  mode.
+
+ L 		- logo of the program.
+
+ ? 		- information  on  the  current  videomode,  without
+		  frequency of display.
+
+ without parameters 
+ 		- switching  from monochrome (7) to  colour (3) mode
+		  and back.
+
+ "any.exe"      - in inverted commas  you can specify a  name of the
+ 'any.exe'        program necessary to run, for example, you want to
+		  see  certain   file  in  a  mode   with  the  high
+		  resolution - see examples.
+
+ V, E, C 	- emulation  VGA,   EGA  and  CGA  of   the  display		  
+ 		  accordingly.
+
+ P[+|-] 	- to permit loading a palette by default p+ or p		
+ 		- to forbid loading a palette by default p- 		  
+ 		  apply from  the moment of installation  of a video		  mode.
+
+ /p:file_pal 	- to load a palette from a text file.
+		  Structure of  a palette  file (size  of a  file no
+		  more than  4 Kb). Empty lines  and lines beginning
+		  with ";" are ignored.  Each colour is described by
+		  three  numbers  (R, G,  B)  in  a range  0..63  in
+		  decimal or 0..3Fh in  hexadecimal. The minus means
+		  the passing, this place will  be as in the current
+		  palette.  Numbers may  be  in one  line,  or in  a
+		  column:
+		  00 00 00 	; black
+		  - - - 	; dark blue (without change)
+		  00 20h 0 	; green
+		  0 20h 20h 	; light-blue
+		  32 - 10 	; red
+
+ \p:file_pal 	- to load a palette from a binary file.
+ 		  each color described by 3 bytes.
+
+ \f:file_fnt[,?]
+ /f:file_fnt[,?]
+ 		- load a  font from the file. If the  size of a file
+		  2048,  3584  or  4096   bytes,  the  program  will
+		  believes that number of scanlines in the symbol 8,
+		  14  and 16  accordingly.  If the  size  of a  file
+		  another, necessary to  specify number of scanlines
+		  through a comma. Example: /f:file.ext,14
+		  /f - do not reset videomode
+		  \f - reset videomode
+
+ + 		- increase of width of symbols up to 9 pixels.
+ ++ 		- increase of width of symbols up to 9 pixels.(other)
+
+ - 		- decrease of width of symbols up to 8 pixels.
+
+ G[+|-] 	- suppression of  colour (switch on/off) -  you will
+		  see shades  grey instead  of colour  images. Apply
+		  from the moment of installation of a video mode.
+ 		  G+ switch on
+		  G- switch off
+		  G  change state
+
+ =? 		- instead of  a mark ?  specify decimal number  of a
+ ~?		  mode  - maximum  three digits,  otherwise mode  is
+		  unpredictable.
+
+ =?h 		- instead of a mark  ? specify hexadecimal number of
+ ~?h		  a mode  - maximum of three  digits, otherwise mode
+		  is unpredictable.
+ 
+ T or S 	- testing of supported video modes:
+		  T - without a sound,
+		  S - with a sound, 
+		  the result will  be written to a file  Z.TXT it is
+		  possible to  specify initial number of  a mode the
+		  test is to begin with: 
+		    T+13h or T-19 or S+13h or S-19
+
+ Q 		- quiet mode.
+
+ F 		- to test  frequency of  display, it is  possible to
+		  measure frequency in any  mode and to set another:
+		  Z ~13h f 3
+
+ B[+|-] 	- to operate the blinking and increase brightness of
+		  a background.
+ 		  B or b+ - switch on blinking
+ 		  B- 	  - switch off blinking
+
+ \92 		- set mode 90 columns on 25 lines
+ \93 		- set mode 90 columns on 30 lines
+ \95 		- set mode 90 columns on 50 lines
+
+ \?? 		- installation of a mode  80 columns on?? Lines. the
+		  following values of lines are allowed:
+		  25, 28, 30, 32, 34, 36, 50 (43-EGA)
+		  the installation 32 and  36 lines requires 286 and
+		  higher.
+
+ \C?? 	 	- installation of  number of columns.  The following
+		  values are  supported. (in some cases  the failure
+		  of synchronization is possible):
+		  80,82,84,86,88,90,92,94,96,98,100,102,104
+
+ [	 	- installation 80x12 ;-)
+ ] 	 	- installation 40x12 ;-)
+ 		  For return to a normal mode: z.com v
+
+ cls[:color]	- clear screen,  color  -  hexadecimal  or   decimal
+ 		  number.
+
+ w or /w        
+ 		- hand-operated installation of windowed modes under
+		  Windows. Use  arrow keys for changes  of number of
+		  lines and columns. Press Escape or Enter for quit.
+		  Press  blank for  return  in  80x25 videomode,  if
+		  during adjustment  any troubles.  Allowable values
+		  are  in an  interval 1..64  for lines,  1..132 for
+		  columns.
+
+ w??x?? or /w??x??
+	        - installation  of a  windowed modes  under Windows,
+		  first  value is  column,  second  value is  lines.
+		  Allowable  values are  in  an  interval 1..64  for
+		  lines, 1..132 for columns.
+
+
+	You can also set the following  video modes:
+
+/36x14 		 /40x14[-] 	 /46x14 	 /36x15
+/40x15[-] 	 /46x15 	 /36x17 	 /40x17[-]
+/46x17 		 /36x22 	 /40x22[-] 	 /46x22
+/70x22 		 /80x22[-] 	 /90x22 	 /36x25
+/40x25[-] 	 /46x25 	 /70x25 	 /80x25[-]
+/90x25 		 /46x29 	 /70x29 	 /80x29[-]
+/90x29 		 /70x30 	 /80x30[-] 	 /90x30
+/70x34 		 /80x34[-] 	 /90x34 	 /70x44
+/80x44[-] 	 /90x44 	 /70x50 	 /80x50[-]
+/90x50 		 /70x60 	 /80x60[-] 	 /90x60
+
+	Accelerated setup of modes
+ 0 		 - 40x25   mode 0
+ 1 		 - 40x25   mode 1
+ 2 		 - 80x25   mode 2
+ 3 		 - 80x25   mode 3
+ 4 		 - 80x50   mode 3 or 7 (43 on EGA)
+ 5 		 - 80x30   mode 3 or 7
+ 6 		 - 80x34   mode 3 or 7
+ 7 		 - 80x25   mode 7
+ 8 		 - 132x30  mode 88
+ 9 		 - 132x43  mode 89
+
+Possible, your video card does not support all listed video modes.
+
+ VESA modes:
+ /V 		 - to receive the information  about VESA modes. the
+ \V		   result of  testing will be written  to Z_VESA.TXT
+		   file.
+
+ /V=? 		 - to set VESA a mode.  ? is hexadecimal number, can
+ \V=?		   have 'h' as the last symbol.
+ 
+ 
+IT IS IMPORTANT:
+if  useing  slash   (/),  installation  of  a   VESA-mode  made  the
+preliminary  check, to  infer whether  it is  accessible. If  useing
+opposite  slash (\),  check on  availability  is not  made, and  the
+attempt to establish a mode will be made.
+
+
+ Examples:
+  Z.COM =3 	 set mode  80x25 
+
+  Z.COM 5 	 set mode  80x30 
+
+  Z.COM \34 	 set mode  80x34 
+
+  Z.COM \93 	 set mode  90x30 
+
+  Z.COM /40x17 	 set mode  40x17, width of symbols 9 pixels
+
+  Z.COM /40x17-  set mode  40x17, width of symbols 8 pixels
+
+  Z.COM =58h F 	 set mode  #58h and to show frequency of display
+
+  Z.COM L \30 	 show logo and then to set a mode 80x30
+
+  Z.COM G- =83h  show grey shades instead of colours and to set mode
+                 3 without clearing the video buffer
+
+  Z.COM P + \32  to permit loading a palette by default and  to  set 
+                 mode 80x32
+
+  Z.COM =88 "hiew filename.exe" \30
+		 To set mode 88, to run the  program  HIEW.EXE  with 
+		 FILENAME.EXE  and  to  set  mode  80
+		 columns on 30 lines on return
+
+  Z.COM 7 'start http://www.whitetown.com' l =3 \30
+		 set monochrome mode,  to run explorer and  to enter
+		 the site of the developer  of the program, to regard the
+		 logo of the program and establish a
+		 colour mode 80 columns on 30 lines on return.
+
+  Z.COM \V 	 to receive the information on VESA-modes
+
+  Z.COM \V =108  set VESA-mode 108h
+
+  Z.COM W	 manual setting of windowed modes
+
+  Z.COM /W98x34	 set windowed mode 98 columns and 34 lines
+
+  Z.COM [	 use, if you  poorly see...
+
+  Z.COM lllllll  to regard logo  many times ;-)
+
+Possible to combine parameters:
+  Z.COM \30 \c108 q 'C:\Progra~1\Far\Far.exe'
+
+
+
+P.S.
+  In the program the same modes can be set with different ways,
+  For example:
+	 Z.COM 4 	³	In these cases the result
+	 Z.COM \50 	ÃÄ>	is the same, but the ways 
+	 Z.COM /80x50 	³ 	of setting are different.
+
+P.P.S.
+  In the program the algorithms was used:
+   ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+   ³ Dmitry Gurtyak ³
+   ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+   Andy Davydov
+   Alex Morshchackin
+   Sanya Dovgal
+   Sergey Polochansky
+   A. & G. Frolov
+   Anatoly Muliarski
+   Oleg Svetozersky
+   MS-DOS
+
+Feedback:
+	The offers and wishes, and also ways of set of various video
+modes send to the address:
+
+FIDO:  		2:4614/46.56
+Email: support@whitetown.com
+Copyright (c) Sergey Chehuta

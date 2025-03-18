@@ -1,0 +1,827 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
+<TITLE>Инструкция для School Pak</TITLE>
+<META NAME="DESCRIPTION" CONTENT="В этой инструкции описано содержание дистрибутива School Pak и некоторые способы его использования и настройки">
+<META NAME="KEYWORDS" CONTENT="school pak,инструкция,readme,документация">
+<LINK REL="stylesheet" HREF="style.css" TYPE="text/css">
+<STYLE TYPE="text/css">H2 { text-align: center; }</STYLE>
+<LINK REL="icon" TYPE="image/vnd.microsoft.icon" HREF="favicon.ico.gif">
+<LINK REL="shortcut icon" TYPE="image/x-icon" HREF="favicon.ico.gif">
+<BASE TARGET="_top">
+</HEAD>
+<BODY>
+ <H1>Инструкция для School Pak</H1>
+ <DIV CLASS="bookmarks">
+  <DIV>Ссылки ведут в Интернет</DIV>
+  <DIV CLASS="topborder"></DIV>
+  <DIV>
+   <STRONG><A HREF="http://dim-hj.gorodok.net/">School Pak</A></STRONG> | <A HREF="http://dim-hj.gorodok.net/rtl-pak.htm">RTL Pak</A>
+  </DIV>
+  <DIV CLASS="topborder"></DIV>
+  <DIV><A HREF="http://dim-hj.gorodok.net/">Главная</A></DIV>
+  <DIV><STRONG><A HREF="http://dim-hj.gorodok.net/school-pak-doc.htm">Инструкция</A></STRONG></DIV>
+  <DIV><A HREF="http://dim-hj.gorodok.net/download-turbo-pascal.htm">Скачать</A></DIV>
+  <DIV><A HREF="http://dim-hj.gorodok.net/img.htm">Скриншоты</A></DIV>
+  <DIV><A HREF="http://dim-hj.gorodok.net/links.htm">Ссылки</A></DIV>
+ </DIV>
+ <H2>ЧАСТЫЕ ПРОБЛЕМЫ И ИХ РЕШЕНИЯ</H2>
+ <P>Специально в самом начале</P>
+ <P><A HREF="#con">Перейти к содержанию</A></P>
+ <UL>
+  <LI>
+   <P>Где мои файлы?</P>
+   <P>В «<B>Моих документах</B>»</P>
+  </LI>
+  <LI>
+   <P>Почему не видно новые файлы?</P>
+   <P>
+    Нажмите <B>Ctrl-F11</B>, откройте диалог открытия файлов
+    ещё раз; после следующего запуска <STRONG>Паскаля</STRONG> должны
+    появиться
+   </P>
+  </LI>
+  <LI>
+   <P><STRONG>Ошибка 84: Предполагается UNIT</STRONG></P>
+   <P>Нельзя называть файл <B>GRAPH.PAS</B></P>
+  </LI>
+  <LI>
+   <P>А где мои <B>exe</B>?</P>
+   <P>
+    В «<B>Мои документы\SCHOOL.PAK\TEMP</B>». Либо, в
+    Portable версии, в «<B>prg\SCHOOL.PAK\TEMP</B>».
+    Но толку от них мало. На другом компьютере может не работать.
+   </P>
+  </LI>
+  <LI>
+   <P>Ошибка 207 или 205 и т. п. с плавающей точкой.</P>
+   <P>
+    <STRONG>Эмуляция FPU</STRONG> должна быть включена!!!
+    Совет выключить эмуляцию в настройках — это плохой
+    совет. Если такие ошибки возникают на другом компьютере,
+    где нет <STRONG>School Pak</STRONG> и не получится
+    установить его, добавьте {$N-,E+} в самое начало программы
+   </P>
+  </LI>
+  <LI>
+   <P>Как копировать текст в другие программы?</P>
+   <P>
+    Напрямую — никак. Нужно сохранить файл в
+    <STRONG>Паскале</STRONG>, затем открыть его
+    <STRONG>WordPad</STRONG>,
+    <A HREF="http://www.farmanager.com/download.php?l=ru">FAR Manager</A>
+    или в другом редакторе, в котором есть кодировка
+    <STRONG>DOS</STRONG>. При этом один и тот же файл
+    не должен быть открыт сразу в двух программах во
+    избежание потери данных.
+   </P>
+  </LI>
+  <LI>
+   <P>Как избавиться от глюка?</P>
+   <P>
+    Если после установки <STRONG>School Pak</STRONG>
+    этого глюка ещё не было, то вместо переустановки нужно
+    удалить «<B>SCHOOL.PAK</B>» из «<B>Моих документов</B>»,
+    это вернёт первоначальные настройки. Если проблема не
+    устраняется, напишите на
+    <A HREF="mailto:hjlab@ngs.ru">hjlab@ngs.ru</A>.
+   </P>
+  </LI>
+  <LI>
+   <P><STRONG>InitGraph</STRONG> не работает</P>
+   <P>Проверьте такой вариант: <STRONG>InitGraph</STRONG>(Gd, Gm, 'X:\BP');</P>
+   <P>
+    Начиная с версии 1.3, <STRONG>InitGraph</STRONG> должен работать вне
+    зависимости от того, что написано в третьем параметре.
+    Картину может испортить разве что нерабочий <STRONG>BGI</STRONG> драйвер
+    по указанному адресу. В общем, чтобы <STRONG>InitGraph</STRONG> не заработал,
+    это надо ещё постараться.
+   </P>
+  </LI>
+ </UL>
+ <A NAME="con">
+ <H2>СОДЕРЖАНИЕ</H2>
+ <UL>
+  <LI><A HREF="#wtf">Что это и зачем это</A></LI>
+  <LI><A HREF="#insi">Состав</A></LI>
+  <LI><A HREF="#keys">Клавиши</A></LI>
+  <LI><A HREF="#menu">Главное меню (Пуск)</A></LI>
+  <LI><A HREF="#cmds">Команды</A></LI>
+  <LI><A HREF="#mini">Мини–руководство для администраторов</A></LI>
+  <LI><A HREF="#files">Файлы и директории</A></LI>
+ </UL>
+ <A NAME="wtf">
+ <H2 STYLE="text-align: left;">Что это, Бэрримор?</H2>
+ <P>
+  <STRONG>School Pak</STRONG> — это решение наболевших
+  проблем педагогов, преподающих программирование на
+  языке <STRONG>Турбо Паскаль</STRONG> в школах, а
+  также учеников, делающих домашние задания в этой
+  системе программирования.
+ </P>
+ <P>
+  Вот только неполный список проблем и их решений:
+ </P>
+ <UL>
+  <LI CLASS="sad">Всё на английском, непонятно.</LI>
+  <LI CLASS="smile">Для большинства програм были установлены русские версии.</LI>
+ </UL>
+ <UL>
+  <LI CLASS="sad">Не вводятся русские символы.</LI>
+  <LI CLASS="smile">В <STRONG>School Pak</STRONG>
+  предустановлен русификаторы <STRONG>dMLS</STRONG> и <STRONG>Cyr</STRONG>.
+  Переключение раскладки — правый <B>Ctrl</B>.</LI>
+ </UL>
+ <UL>
+  <LI CLASS="sad">Программы, использующие модуль <STRONG>CRT</STRONG>, не работают.</LI>
+  <LI CLASS="smile">Модуль <STRONG>CRT</STRONG> был пропатчен против <A HREF="http://dim-hj.gorodok.net/specific/error-200-division-by-zero.htm">ошибки 200</A>, при этом длительность <STRONG>Delay</STRONG> не уменьшается, как это часто бывает в плохо пропатченных модулях <STRONG>CRT</STRONG>.</LI>
+ </UL>
+ <UL>
+  <LI CLASS="sad"><STRONG>Турбо Паскаль</STRONG> не запускается на <STRONG>64битных</STRONG> системах.</LI>
+  <LI CLASS="smile"><STRONG>School Pak</STRONG> запускает программы в эмуляторе <STRONG>DOSBox</STRONG>, который работает на самых разных операционных системах.</LI>
+ </UL>
+ <UL>
+  <LI CLASS="sad">Пробовали мы этот <STRONG>DOSBox</STRONG>, ничего не запускается.</LI>
+  <LI CLASS="sad">В <STRONG>DOSBox</STRONG>, взятом с официального сайта, <B>Ctrl-F9</B> — это горячая клавиша закрытия окна.</LI>
+  <LI CLASS="smile">Горячие клавиши <STRONG>DOSBox</STRONG> были переназначены.</LI>
+ </UL>
+ <UL>
+  <LI CLASS="sad"><STRONG>Турбо Паскаль</STRONG> часто ругается, что не может записать какой–то файл.</LI>
+  <LI CLASS="sad">Настройки <STRONG>Турбо Паскаль</STRONG> не сохраняются.</LI>
+  <LI CLASS="smile">Все программы в <STRONG>School Pak</STRONG> были по возможности  настроены так, чтобы хранить настройки в личной папке пользователя (обычно «<B>Мои документы</B>», либо, в Portable версии, «<B>prg</B>»).</LI>
+ </UL>
+ <A NAME="insi">
+ <H2>СОСТАВ</H2>
+ <P><A HREF="#con">Перейти к содержанию</A></P>
+ <H2>Turbo Pascal с дополнениями</H2>
+ <P>
+  Дополнения включают в себя:
+ </P>
+ <UL>
+  <LI>
+   <P>
+    <STRONG>BGI</STRONG> драйвера для <STRONG>SVGA</STRONG>
+    видеорежимов и вспомогательный модуль
+    <STRONG>ScpGraph</STRONG> для работы с ними.
+   </P>
+  </LI>
+  <LI>
+   <P>
+    Резидентный драйвер <STRONG>InitGraph Everywhere</STRONG>,
+    благодаря которому третий параметр <STRONG>InitGraph</STRONG>
+    не так критичен. Если при открытии файла с расширением
+    <B>.BGI</B>, <B>.CHR</B> или <B>.BGT</B> не удалось найти файл,
+    этот файл дополнительно ищется в <B>X:\BP</B>.
+   </P>
+  </LI>
+  <LI>
+   <P>
+    Модуль <STRONG>AnsiFile</STRONG> для преобразования из кодировки
+    <STRONG>DOS</STRONG> в <STRONG>Windows</STRONG>
+    и обратно. Изюминкой этого модуля является текстовый
+    драйвер, берущий на себя все заботы  по перекодировке.
+    Достаточно добавить в <B>uses</B>
+    <STRONG>AnsiFile</STRONG> и заменить <STRONG>Assign</STRONG>
+    на <STRONG>AssignAnsi</STRONG>.
+   </P>
+  </LI>
+  <LI><P>Несколько демонстрационных программ</P></LI>
+ </UL>
+ <P>Помимо <STRONG>Турбо Паскаль</STRONG>, <STRONG>School Pak</STRONG> включает в себя:</P>
+ <H2>Norton Commander</H2>
+ <P>
+  Отличная оболочка для <STRONG>DOS</STRONG>. Лишний повод
+  использовать <STRONG>School Pak</STRONG> в роли настроенного
+  <STRONG>эмулятора DOS</STRONG>.
+ </P>
+ <H2>Hacker's View</H2>
+ <P>
+   16ричный редактор для <STRONG>DOS</STRONG>. Вызывается
+   из <STRONG>Norton Commander</STRONG> нажатием
+   <B>Alt-F4</B>.  Полезно на уроках информатики иногда показать
+   внутренности файла.
+ </P>
+ <H2>AVPUTIL</H2>
+ <P>
+  Интерактивный  отладчик.  Поставлялся  вместе  с  антивирусом
+  <STRONG>AVP</STRONG>. Для отладки ассемблера лучше, чем
+  <STRONG>Turbo Debugger</STRONG>.
+ </P>
+ <H2>NDOS</H2>
+ <P>
+  Альтернативный  интерпретатор  команд  для
+  <STRONG>DOS</STRONG>.  Заменяет <STRONG>command.com</STRONG>.
+  Мощнее, чем <STRONG>cmd.exe</STRONG> в <STRONG>Windows</STRONG>.
+  Учитывая, что <STRONG>NDOS</STRONG> не понимает длинные имена
+  файлов, сейчас он не так актуален (разве что
+  <A HREF="http://www.jpsoft.com/tccledes.htm">4NT</A>). Но если
+  нужно написать скрипт под <STRONG>DOS</STRONG>, это лучший вариант.
+  Именно с этой целью он и был включён в <STRONG>School Pak</STRONG>.
+ </P>
+ <H2>dMLS</H2>
+ <P>
+  Интересный русификатор. Может заменить режим <B>80х50</B> на
+  более оптимальный <B>80х33</B>.
+ </P>
+ <H2>Cyr</H2>
+ <P>
+  Русификатор клавиатуры. Немного подправлена раскладка,
+  чтобы соответствовать современной клавиатуре. Раньше
+  <B>Shift-7</B> было '.', сейчас стало '?'.
+ <P>
+  Обычно русификаторы экрана и клавиатуры ставятся в паре
+  от одного производителя. <STRONG>MLSKB</STRONG> из комплекта
+  <STRONG>dMLS</STRONG> плох тем, что сочетания клавиш типа
+  <B>Ctrl-Ins</B> приходится нажимать, подольше удерживая
+  <B>Ctrl</B>. Нажал <B>Ctrl-Ins</B>, думаешь, скопировал
+  в буфер обмена, открываешь другой файл, куда нужно вставить,
+  <B>Shift-Ins</B>, ан нет, не скопировалось. Надо было дольше
+  <B>Ctrl</B> жать. Конечно, это неприятно. Для желающих
+  <STRONG>MLSKB</STRONG> всё ещё доступен, можно в <B>LAUNCH.BTM</B>
+  закомментировать <STRONG>CYRKBD</STRONG> и раскомментировать
+  <STRONG>MLSKB</STRONG>
+ </P>
+ <A NAME="keys">
+ <H2>КЛАВИШИ</H2>
+ <P><A HREF="#con">Перейти к содержанию</A></P>
+ <UL>
+  <LI>
+   <B>Alt-F11</B> — вернуть  управление мышью в
+   <STRONG>Windows</STRONG>.
+  </LI>
+  <LI>
+   <B>Ctrl-F11</B> — пересканировать файловую систему.
+   Почти моментально.
+  </LI>
+  <LI>
+   <B>Ctrl-F12</B> — закрыть  окно <STRONG>DOSBox</STRONG>
+   (все несохранённые изменения будут потеряны без
+   предупреждения)
+  </LI>
+  <LI>
+   <B>Alt-F12</B> — кнопка <B>Turbo</B>. Вроде бы не работает.
+  </LI>
+  <LI><B>Alt-Enter</B> — полноэкранный/оконный режим.</LI>
+  <LI><B>Правый Ctrl</B> — латинская/русская раскладка.</LI>
+  <LI>
+   Раскладка внутри <STRONG>DOSBox</STRONG> не зависит от
+   системной. То есть, то, что написано
+   «рядом с часиками»  (<B>RU</B>/<B>EN</B>), не имеет отношения к
+   <STRONG>DOSBox</STRONG>.
+  </LI>
+ </UL>
+ <A NAME="menu">
+ <H2>ГЛАВНОЕ МЕНЮ (ПУСК)</H2>
+ <P><A HREF="#con">Перейти к содержанию</A></P>
+ <UL>
+  <LI>
+   <DIV><STRONG>School Pak</STRONG></DIV>
+   <UL>
+    <LI>
+     <DIV>
+      <STRONG>Turbo Pascal</STRONG>,
+      <STRONG>Norton Commander</STRONG>
+     </DIV>
+     <P>
+      Запускают выбранную программу. В зависимости от того,
+      был ли при установке выбран доступ к «<B>C:</B>, <B>D:</B>, и т. д.»,
+      выбранная программа будет запущена с монтированием
+      этих дисков или без.
+     </P>
+    </LI>
+    <LI>
+     <DIV><B>Другой режим доступа</B></DIV>
+     <P>
+      Редко, когда может понадобиться. Сделано только
+      лишь для полноты. Подменю содержит ярлыки
+      <STRONG>Turbo Pascal</STRONG> и
+      <STRONG>Norton Commander</STRONG> с указанием
+      режима доступа к файловой системе.
+     </P>
+    </LI>
+    <LI>
+     <DIV><B>Командная строка</B></DIV>
+     <P>
+      Запуск настроенного окружения <STRONG>DOS</STRONG>. Диски
+      «<B>C:</B>, <B>D:</B>, и т. д.» не монтируются.
+     </P>
+    </LI>
+    <LI>
+     <DIV><B>Администрирование</B></DIV>
+     <P>
+      Ярлыки для управления настройками, глобальными для всех
+      пользователей. Для использования требуются привиллегии
+      администратора.
+     </P>
+     <UL>
+      <LI>
+       <DIV><B>Диск Y</B></DIV>
+       <P>
+        Открывает блокнот с редактированием <B>cmd\settings.cmd</B>.
+        В этом файле в комментариях написано, как нужно
+        изменить этот файл, чтобы личный диск <B>Y:</B>
+        монтировался в другое место, нежели в «<B>Мои документы</B>».
+        Это нужно, если в вашем заведении пользователи входят
+        под одним и тем же логином, а дальше с помощью
+        какой–нибудь программы монтируют сетевой диск со
+        своими файлами. В Portable версии <B>Y:</B> монтируется в «<B>prg</B>»
+       </P>
+      </LI>
+      <LI>
+       <DIV><B>Командная строка</B></DIV>
+       <P>
+        Запуск командной строки с возможностью
+        записи на диск <B>X:</B>
+       </P>
+      </LI>
+      <LI>
+       <DIV><B>Настройки DOSBox</B></DIV>
+       <P>
+        Открывает окно блокнота для редактирования
+        конфигурационного файла <STRONG>DOSBox</STRONG>.
+       </P>
+      </LI>
+     </UL>
+    </LI>
+    <LI>
+     <DIV><B>Инструкция</B></DIV>
+     <P>
+      Этот текст.
+     </P>
+    </LI>
+    <LI>
+     <DIV><B>Установить на другой компьютер</B></DIV>
+     <P>
+      При установке по умолчанию предлагается оставить
+      копию установочного файла, чтобы, если кому–нибудь
+      (другу / студенту / гостю)
+      понравится <STRONG>School Pak</STRONG>, его можно
+      было бы сразу же и скопировать себе. Этот пункт
+      меню открывает папку с сохранёнными копиями
+      установщика.
+     </P>
+    </LI>
+    <LI>
+     <DIV><B>Удалить School Pak</B></DIV>
+    </LI>
+   </UL>
+  </LI>
+ </UL>
+ <A NAME="cmds">
+ <H2>КОМАНДЫ</H2>
+ <P><A HREF="#con">Перейти к содержанию</A></P>
+ <PRE>x<SPAN CLASS="symbol">:\</SPAN>mountall</PRE>
+ <P>Монтирует все диски (<B>C:</B>, <B>D:</B>, и т. д.)</P>
+ <P>
+  Удобно, если некогда копаться в документации. Но незопасно.
+  Создатели <STRONG>DOSBox</STRONG> не рекомендуют. Начиная с
+  версии 1.1, все диски монтируются по умолчанию. Про
+  неподключённый диск <B>C:</B> были плохие
+  отзывы и ни одного хорошего. В конце концов, запущенные на
+  <STRONG>NTVDM</STRONG> процессы тоже имеют доступ ко всей
+  файловой системе.
+ </P>
+ <P>
+  Дискеты  (<B>A:</B>, <B>B:</B>) этой  командой не монтируются,
+  потому что, если этих дисков нет, <STRONG>Windows</STRONG>
+  неприятно ругается. Если надо подключить <B>A:</B>, наберите
+  команду:
+ </P>
+ <PRE><SPAN CLASS="reserved">mount</SPAN> a a<SPAN CLASS="symbol">:\</SPAN></PRE>
+ <P>
+  Чтобы сделать это из <STRONG>Turbo Pascal</STRONG>, выберите
+  <B>Файл</B> » <B>Временный выход</B>, введите команду, <B>Enter</B>, затем
+  введите команду «exit», <B>Enter</B>, и вы вернётесь в
+  <STRONG>Turbo Pascal</STRONG>.
+ </P>
+ <HR>
+ <PRE>nc</PRE>
+ <P>Запускает <STRONG>Norton Commander</STRONG>.</P>
+ <HR>
+ <PRE>tp</PRE>
+ <P>Запускает <STRONG>Turbo Pascal</STRONG>.</P>
+ <HR>
+ <PRE><SPAN CLASS="reserved">exit</SPAN></PRE>
+ <P>Выход.</P>
+ <HR>
+ <PRE>hiew</PRE>
+ <P>16ричный редактор.</P>
+ <HR>
+ <PRE>avputil</PRE>
+ <P>Отладчик.</P>
+ <HR>
+ <P>
+  Последние  два  инструмента — ну  вдруг  надо кому–то?
+  Сейчас  тяжело достать. С их помощью выявлялись источники
+  проблем и делались патчи, вот и было решено оставить их.
+ </P>
+ <A NAME="mini">
+ <H2>Мини–руководство для администраторов</H2>
+ <P><A HREF="#con">Перейти к содержанию</A></P>
+ <P>
+  Во–первых, обращаю внимание на то, что
+  <STRONG>DOSBox</STRONG> — это эмулятор.  С точки зрения
+  программ, запущенных внутри <STRONG>DOSBox</STRONG>, всё
+  устроено немного иначе, чем снаружи. В первую очередь, это
+  касается букв дисков. Например, если запустить
+  <STRONG>Norton Commander</STRONG>, то в меню его дисков
+  обязательно будут <B>X:</B>, <B>Y:</B> и <B>Z:</B>.
+  Скорее всего, снаружи <STRONG>DOSBox</STRONG> этих дисков
+  не видно. Или видно, но это совсем другие диски. Это
+  специальные диски:
+ </P>
+ <UL>
+  <LI>
+   <B>X:</B> — на этом диске стоит весь софт.  У
+   пользователей обычно нет права записи на этот диск.
+  </LI>
+  <LI>
+   <B>Y:</B> — этот   диск   соответствует   личной
+   папке   пользователя.   У пользователя должно быть
+   право записи на этот диск. Пользователь может  хранить
+   на  этом  диске  свои  файлы,  например,  тексты
+   программ.  Все программы настроены так,  чтобы хранить
+   настройки на этом диске,  так что этот диск должен быть
+   своим для каждого человека.
+  </LI>
+  <LI>
+   <B>Z:</B> — это виртуальный диск <STRONG>DOSBox</STRONG>.
+   Его нельзя настроить или отключить.
+  </LI>
+ </UL>
+ <P>
+  Диск <B>Y:</B> обычно соответствует папке
+  «<B>Мои документы</B>», либо, в Portable версии, «<B>prg</B>».
+  Впрочем, у <STRONG>DOSBox</STRONG>
+  не всегда удачно получается монтировать  пути с русскими
+  буквами. Если что-то не состыковалось, загрузочный скрипт
+  <STRONG>School Pak</STRONG> попытается подмонтировать
+  что-нибудь взамен «<B>Моих документов</B>».  Диск <B>C:</B>,
+  например. Вывести список подключённых дисков можно командой
+ </P>
+ <PRE><SPAN CLASS="reserved">mount</SPAN></PRE>
+ <P>
+  В школьных/университетских  сетях я часто видел,
+  что админы для файлов пользователя делают сетевой диск,
+  например, <B>H:</B>. В этом случае <STRONG>School Pak</STRONG>
+  может использовать его в качестве <B>Y:</B>. Эта настройка
+  находится в файле <B>cmd\settings.cmd</B> (на
+  <STRONG>Висте</STRONG> для редактирования нужно запускать
+  пункт меню <STRONG>School Pak</STRONG> » <B>Администрирование</B>
+  » <B>Диск Y</B> или, что то же самое,
+  <B>SETUP_Y.EXE</B>)
+ </P>
+ <P>
+  Во-вторых, <STRONG>DOSBox</STRONG> не сразу показывает
+  файлы, добавленные извне.  То есть, если файл был скопирован
+  в «<B>Мои документы</B>» (или «<B>prg</B>»), а его из <STRONG>DOSBox</STRONG>
+  ещё не видно, нужно нажать <B>Ctrl-F11</B>. Например, в
+  <STRONG>Norton Commander</STRONG>: <B>Ctrl-F11</B>
+  <B>Ctrl-R</B> полностью обновят список файлов.
+ </P>
+ <A NAME="files">
+ <H2>ФАЙЛЫ И ДИРЕКТОРИИ</H2>
+ <P><A HREF="#con">Перейти к содержанию</A></P>
+ <UL>
+  <LI>
+   <DIV><B>cmd</B></DIV>
+   <P>Скрипты для запуска <STRONG>School Pak</STRONG></P>
+   <UL>
+    <LI>
+     <DIV><B>shell.cmd</B></DIV>
+     <P>Собственно скрипт запуска</P>
+    </LI>
+    <LI>
+     <DIV><B>shero.cmd</B></DIV>
+     <P>
+      Вызывает скрипт запуска так, чтобы <B>X:</B> монтировался
+      в режиме только–чтение
+     </P>
+    </LI>
+    <LI>
+     <DIV><B>settings.cmd</B></DIV>
+     <P>
+      Скрипт с настройками запуска (пока что настраивается
+      только <B>Y:</B>) Редактируется вызовом <B>SETUP_Y.EXE</B>
+     </P>
+    </LI>
+   </UL>
+  </LI>
+  <LI>
+   <DIV><B>dosbox</B></DIV>
+   <P>Файлы <STRONG>DOSBox</STRONG></P>
+   <UL>
+    <LI>
+     <DIV><B>scpak.cfg</B></DIV>
+     <P>
+      Конфигурационный файл <STRONG>DOSBox</STRONG>.
+      Редактируется вызовом <B>SETUP_DB.EXE</B>
+     </P>
+    </LI>
+    <LI>
+     <DIV><B>doc</B></DIV>
+     <P>Документация для <STRONG>DOSBox</STRONG></P>
+    </LI>
+   </UL>
+  </LI>
+  <LI>
+   <DIV><B>html</B></DIV>
+   <P>
+    Эта документация.
+   </P>
+  </LI>
+  <LI>
+   <DIV><B>installer</B></DIV>
+   <P>
+    Копии установочных файлов для перераспространения. Отсутствует в
+    Portable версии.
+   </P>
+  </LI>
+  <LI>
+   <DIV><B>prg</B></DIV>
+   <P>
+    Имеется только в Portable версии. Эта папка монтируется как диск <B>Y:</B>.
+    <B>prg</B> находится внутри School Pak Portable, поэтому переносится вместе
+    с ним.
+   </P>
+  </LI>
+  <LI>
+   <DIV><B>*.exe</B></DIV>
+   <P>Запускают нужную программу</P>
+   <P>
+    <B>TURBO.EXE</B>, <B>TURBOD.EXE</B> —
+    <STRONG>Turbo Pascal</STRONG>
+   </P>
+   <P>
+    <B>NC.EXE</B> <B>NCD.EXE</B> —
+    <STRONG>Norton Commander</STRONG>
+   </P>
+   <P><B>SHELL.EXE</B> — Командная строка</P>
+   <P>
+    Вариант с буквой 'D' на конце  подключает все
+    диски  (<B>C:</B>, <B>D:</B>, и т. д.), какие сможет.
+   </P>
+   <P>
+    <B>SETUP_DB.EXE</B> — Редактировать конфиг
+    <STRONG>DOSBox</STRONG>
+   </P>
+   <P>
+    <B>SETUP_Y.EXE</B> — Редактировать подключение <B>Y:</B>
+   </P>
+   <P>
+    <B>SETUP_SH.EXE</B> — <STRONG>DOSBox</STRONG> с правами
+    админа (и правом записи на <B>X:</B>)
+   </P>
+   <P>
+    Последние  3  экзешника  имеют  особое  значение
+    на  <STRONG>Vista</STRONG>. Они поднимают уровень привиллегий
+    до администратора.  С  их помощью можно настраивать
+    <STRONG>School Pak</STRONG>.
+   </P>
+  </LI>
+  <LI>
+   <DIV><B>pak</B></DIV>
+   <P>Диск <B>X:</B> внутри <STRONG>DOSBox</STRONG></P>
+   <UL>
+    <LI>
+     <DIV><B>BP</B></DIV>
+     <P><STRONG>Turbo Pascal 7 русский</STRONG></P>
+     <UL>
+      <LI>
+       <DIV><B>DEMOS</B></DIV>
+       <P>Разные демонстрационные программы</P>
+      </LI>
+      <LI>
+       <DIV><B>SOURCE</B></DIV>
+       <P>
+        Исходники дополнительных модулей были перенесены в
+        этот каталог, чтобы компилятор не транслировал их
+        заново.
+       </P>
+      </LI>
+      <LI>
+       <DIV>
+        <B>SCPGRAPH.TPU</B>, <B>SVGA*.BGI</B>,
+        <B>VGA256.BGI</B>, <B>TABLE.BGT</B>
+       </DIV>
+       <P>
+        Файлы  для  <STRONG>SVGA</STRONG> режимов.
+        Подключите <STRONG>ScpGraph</STRONG> после
+        <STRONG>Graph</STRONG> и инициализируйте
+        графику <STRONG>InitScpGraph</STRONG> вместо
+        <STRONG>InitGraph</STRONG>.
+       </P>
+       <P>
+         Функция <STRONG>InitScpGraph</STRONG>:
+       </P>
+       <PRE>InitScpGraph<SPAN CLASS="symbol">(</SPAN>Xres<SPAN CLASS="symbol">,</SPAN> Yres<SPAN CLASS="symbol">,</SPAN> Colors <SPAN CLASS="symbol">:</SPAN> Integer<SPAN CLASS="symbol">;</SPAN>
+  ForceNonSVGA <SPAN CLASS="symbol">:</SPAN> Boolean<SPAN CLASS="symbol">;</SPAN> Path <SPAN CLASS="symbol">:</SPAN> <SPAN CLASS="reserved">String</SPAN><SPAN CLASS="symbol">)</SPAN> <SPAN CLASS="symbol">:</SPAN> Integer<SPAN CLASS="symbol">;</SPAN></PRE>
+       <P>
+         Функция  аналогична  <STRONG>InitGraph</STRONG>  с  той
+         разницей,  что  ошибка возвращается в результате, а не в
+         <STRONG>GraphResult</STRONG>. Для нормальной работы нужен
+         <B>TABLE.BGT</B>. Этот файл содержит таблицу с разрешениями
+         экрана, количеством цветов,  названиями
+         драйвера и  константами видеорежима в этом дравере. <B>Colors</B> —
+         это  16, 256, 1500, 1600 или 2400,  последние  три варианта не
+         количество цветов, а количество бит в цвете * 100.
+       </P>
+       <P>
+         Пример использования — в <B>DEMOS\GRTEST.PAS</B>
+       </P>
+      </LI>
+      <LI>
+       <DIV><B>SVGA.TPU</B></DIV>
+       <P>
+         Устаревший  модуль.  Использовался  ранее  в 
+         <STRONG>School Pak</STRONG>.  Для инициализации
+         используются  константы,  это  не так удобно по
+         сравнению с <STRONG>InitScpGraph</STRONG>.
+         <STRONG>InitScpGraph</STRONG> считывает константы
+         из текстового файла, а, значит,
+         впоследствии этот текстовый файл можно будет
+         подредактировать, например, добавить <B>S3.BGI</B>
+         или <B>DOSBOX.BGI</B> (если такой появится) без
+         перекомпиляции программы. <B>SVGA.TPU</B>
+         этой гибкости лишён.
+       </P>
+       <P>
+        Старое описание: Добавьте
+        <STRONG>SVGA</STRONG> в список <B>uses</B>, и
+        режимом по умолчанию становится <B>800x600x256</B>
+        (но нужно сделать <B>SetColor</B>(White), иначе цвет по
+        умолчанию очень тёмный 255ый). В этом же  модуле
+        есть константы и переменные для других режимов. 
+        <B>True Color</B>, к сожалению, не заработал, поэтому его
+        нет. Пример  использования в <B>SOURCES\SVGADEMO.PAS</B>
+       </P>
+      </LI>
+      <LI>
+       <DIV><STRONG>ANSIFILE.TPU</STRONG></DIV>
+       <P>
+        Модуль для преобразования из кодировки
+        <STRONG>DOS</STRONG> в <STRONG>Windows</STRONG>
+        и обратно. Изюминкой этого модуля является текстовый
+        драйвер, берущий на себя все заботы  по перекодировке.
+        Достаточно добавить в <B>uses</B>
+        <STRONG>AnsiFile</STRONG> и заменить <STRONG>Assign</STRONG>
+        на <STRONG>AssignAnsi</STRONG>. Пример использования в
+        <B>DEMOS\ANSITEST.PAS</B>
+       </P>
+      </LI>
+      <LI>
+       <DIV><B>_*.CHR</B></DIV>
+       <P>
+        Дополнительная  коллекция  шрифтов (~41).  К
+        сожалению, <STRONG>Graph</STRONG> не позволяет
+        загрузить их все сразу, поэтому никакой поддержки
+        для них нет. Если хочется использовать один из этих
+        шрифтов, делайте это вручную. В <B>DEMOS\GRTEST.PAS</B>
+        показано, как загружать эти шрифты.
+       </P>
+      </LI>
+     </UL>
+    </LI>
+    <LI>
+     <DIV><B>HJLABTSR</B></DIV>
+     <P>Вспомогательные резиденты.</P>
+     <UL>
+      <LI>
+       <DIV><B>GRAPH.ASM</B>, <B>GRAPH.COM</B></DIV>
+       <P>
+        Благодаря этому драйверу, третий параметр
+        <STRONG>InitGraph</STRONG> уже не так критичен.
+        Если в указанной директории не оказалось
+        нужного файла (<B>*.BGI</B>, <B>*.CHR</B> или
+        <B>*.BGT</B>), этот драйвер
+        попытается найти файл в <B>X:\BP</B>
+       </P>
+      </LI>
+      <LI>
+       <DIV><B>IDLE.ASM</B>, <B>IDLE.COM</B></DIV>
+       <P>
+        Снижает нагрузку на <STRONG>CPU</STRONG> во время холостых
+        циклов. Только для <STRONG>DOSBox</STRONG>. Без этого
+        драйвера одно ядро нагружено на 100%. С этим драйвером
+        нагрузка падает до уровня примерно 550MHz.
+       </P>
+      </LI>
+      <LI>
+       <DIV><B>CTRLC.ASM</B>, <B>CTRLC.COM</B></DIV>
+       <P>
+        Благодаря этому драйверу, в <STRONG>DOSBox</STRONG>
+        работает комбинация <B>Ctrl-C</B>. Как любят
+        утверждать разработчики <STRONG>DOSBox</STRONG>,
+        если это не нужно для игр, это не нужно в
+        <STRONG>DOSBox</STRONG>. <STRONG>School Pak</STRONG>
+        имеет совершенно другие цели, поэтому
+        неигровые недостатки <STRONG>DOSBox</STRONG>
+        в нём исправляются дополнениями вроде этого.
+       </P>
+      </LI>
+     </UL>
+    </LI>
+    <LI>
+     <DIV><B>HIEW_611</B></DIV>
+     <P><STRONG>Hacker's View</STRONG> &amp; <STRONG>AVPUTIL</STRONG></P>
+    </LI>
+    <LI>
+     <DIV><B>DMLS102</B></DIV>
+     <P>
+      <STRONG>dMLS</STRONG>
+      (<STRONG>Demos Multi Ligual Support</STRONG>) 1.02
+     </P>
+    </LI>
+    <LI>
+     <DIV><B>MEDINCOM.CYR</B></DIV>
+     <P>
+      <STRONG>CyrKbd</STRONG>
+      (из <STRONG>МТЦ Мединком</STRONG> <STRONG>Cyr</STRONG> 2.4)
+     </P>
+    </LI>
+    <LI>
+     <DIV><B>NC50</B></DIV>
+     <P><STRONG>Norton Commander 5.0 русский</STRONG></P>
+    </LI>
+    <LI>
+     <DIV><B>NOBLINK</B></DIV>
+     <P>Выключает мигание</P>
+    </LI>
+    <LI>
+     <DIV><B>NU80</B></DIV>
+     <P>Урезанная версия <STRONG>Norton Utilities 8.0</STRONG></P>
+    </LI>
+    <LI>
+     <DIV><B>Z</B></DIV>
+     <P>
+      Устанавливает  разные  текстовые режимы, например,
+      <B>132x43</B>. Не совсем работает в <STRONG>DOSBox</STRONG>.
+     </P>
+    </LI>
+    <LI>
+     <DIV><B>launch.bat</B></DIV>
+     <P>
+      Этот файл выполняется во время загрузки
+      <STRONG>DOSBox</STRONG>.
+     </P>
+    </LI>
+    <LI>
+     <DIV><B>launch.btm</B></DIV>
+     <P>Этот файл выполняется после <B>launch.bat</B></P>
+    </LI>
+    <LI>
+     <DIV><B>mountall.bat</B></DIV>
+     <P>
+      Подключает внешние диски в <STRONG>DOSBox</STRONG>
+      (<B>C:</B>, <B>D:</B>, ...).
+     </P>
+    </LI>
+    <LI>
+     <DIV><B>schelp.bat</B></DIV>
+     <P>
+      Выводит  небольшую  справку. Этот файл можно менять
+      под нужды конкретного заведения.
+     </P>
+    </LI>
+    <LI>
+     <DIV><B>SKELETON</B></DIV>
+     <P>
+      Здесь  расположены  настройки  по умолчанию  для
+      пользователей, запустивших <STRONG>School Pak</STRONG>
+      первый раз.
+     </P>
+     <UL>
+      <LI>
+       <DIV><B>dmls.ini</B></DIV>
+       <P>
+        Настройки программ из пакета <STRONG>dMLS</STRONG>.
+        На первой строке настройки драйвера экрана, на второй —
+        клавиатуры.
+       </P>
+      </LI>
+      <LI>
+       <DIV><B>nc.mnu</B></DIV>
+       <P>Меню <STRONG>Norton Commander</STRONG>.</P>
+      </LI>
+      <LI>
+       <DIV><B>tools.mnu</B></DIV>
+       <P>Меню «Утилиты» <STRONG>Norton Commander</STRONG>.</P>
+      </LI>
+      <LI>
+       <DIV><B>autoexec.btm</B></DIV>
+       <P>Этот файл выполняется после <B>launch.btm</B>.</P>
+      </LI>
+     </UL>
+    </LI>
+   </UL>
+  </LI>
+ </UL>
+ <P>
+  При запуске <STRONG>School Pak</STRONG>, если надо,
+  создаёт <B>Y:\SCHOOL.PAK</B>. Если в этом каталоге недостаёт
+  какого–то файла настроек, он восстанавливается из
+  <B>SKELETON</B>.
+ </P>
+</BODY>
+</HTML>

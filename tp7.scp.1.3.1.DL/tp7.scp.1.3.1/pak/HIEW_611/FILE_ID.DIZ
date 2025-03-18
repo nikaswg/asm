@@ -1,0 +1,24 @@
+       Hacker's View release VI
+----------------------------------------
+* view files any length 
+  in text, hex, code modes
+* Pentium-Pro(R) dissasembler & assembler
+* support newexecutable format file
+  NE,LE,LX,PE
+* support Netware Loadable Modules 
+  NLM,DSK,LAN,...
+* one-touch-jump for direct call/jmp
+  instructions in any executable file
+* build-in small decrypt/crypt system
+* build-in powerfull calculator
+* any length block operations: 
+  read, write, fill
+* multifile search/replace
+* dual executable file OS/2 & DOS
+* include utilities for 
+  detail dump NE-, LX/LE- modules
+* include dos-utility for split/join 
+  dual executable files (MZ,NE,LX,LE,PE)
+----------------------------------------
+        (c)SEN Kemerovo 1999
+----------------------------------------
